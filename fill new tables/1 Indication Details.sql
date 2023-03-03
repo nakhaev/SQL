@@ -1,8 +1,8 @@
 
 -- Cretae Indication Details from Product Details on mdm --
-ALTER TABLE [mdm].[IndicationDetail] DROP CONSTRAINT [FK_StandardIndicationCode_IndicationDetail_Mdm]
+ALTER TABLE [mdm].[IndicationDetail] NOCHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [mdm].[LicenseDetail] DROP CONSTRAINT [FK_IndicationDetailCode_LicenseDetail_Mdm]
+ALTER TABLE [mdm].[LicenseDetail] NOCHECK CONSTRAINT ALL;
 GO
 DELETE FROM [BCIQ_ODS].[mdm].[IndicationDetail]
 GO
@@ -32,26 +32,19 @@ INSERT INTO [BCIQ_ODS].[mdm].[IndicationDetail] (
 GO
 SET IDENTITY_INSERT [BCIQ_ODS].[mdm].[IndicationDetail] OFF;
 GO
-ALTER TABLE [mdm].[IndicationDetail]  WITH NOCHECK ADD  CONSTRAINT [FK_StandardIndicationCode_IndicationDetail_Mdm] FOREIGN KEY([StandardIndicationCode])
-REFERENCES [mdm].[StandardIndication] ([Code])
+ALTER TABLE [mdm].[IndicationDetail] CHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [mdm].[IndicationDetail] CHECK CONSTRAINT [FK_StandardIndicationCode_IndicationDetail_Mdm]
-GO
-ALTER TABLE [mdm].[LicenseDetail]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_LicenseDetail_Mdm] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [mdm].[IndicationDetail] ([Code])
-GO
-ALTER TABLE [mdm].[LicenseDetail] CHECK CONSTRAINT [FK_IndicationDetailCode_LicenseDetail_Mdm]
-
+ALTER TABLE [mdm].[LicenseDetail] CHECK CONSTRAINT ALL;
 
 -- Copy Indication Details from mdm to ods --
 GO
-ALTER TABLE [ods].[IndicationDetail]  DROP CONSTRAINT [FK_StandardIndicationCode_IndicationDetail]
+ALTER TABLE [ods].[IndicationDetail] NOCHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[License] DROP CONSTRAINT [FK_IndicationDetailCode_License]
+ALTER TABLE [ods].[License] NOCHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[LicenseDetail] DROP CONSTRAINT [FK_IndicationDetailCode_LicenseDetail]
+ALTER TABLE [ods].[LicenseDetail] NOCHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[Pipeline]  DROP CONSTRAINT [FK_IndicationDetailCode_Pipeline]
+ALTER TABLE [ods].[Pipeline] NOCHECK CONSTRAINT ALL;
 GO
 DELETE FROM [BCIQ_ODS].[ods].[IndicationDetail]
 GO
@@ -85,44 +78,30 @@ INSERT INTO [BCIQ_ODS].[ods].[IndicationDetail] (
 GO
 SET IDENTITY_INSERT [BCIQ_ODS].[ods].[IndicationDetail] OFF;
 GO
-ALTER TABLE [ods].[IndicationDetail]  WITH NOCHECK ADD  CONSTRAINT [FK_StandardIndicationCode_IndicationDetail] FOREIGN KEY([StandardIndicationCode])
-REFERENCES [ods].[StandardIndication] ([Code])
+ALTER TABLE [ods].[IndicationDetail] CHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[IndicationDetail] CHECK CONSTRAINT [FK_StandardIndicationCode_IndicationDetail]
+ALTER TABLE [ods].[License] CHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[License]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_License] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [ods].[IndicationDetail] ([Code])
+ALTER TABLE [ods].[LicenseDetail] CHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[License] CHECK CONSTRAINT [FK_IndicationDetailCode_License]
-GO
-ALTER TABLE [ods].[LicenseDetail]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_LicenseDetail] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [ods].[IndicationDetail] ([Code])
-GO
-ALTER TABLE [ods].[LicenseDetail] CHECK CONSTRAINT [FK_IndicationDetailCode_LicenseDetail]
-GO
-ALTER TABLE [ods].[Pipeline]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_Pipeline] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [ods].[IndicationDetail] ([Code])
-GO
-ALTER TABLE [ods].[Pipeline] CHECK CONSTRAINT [FK_IndicationDetailCode_Pipeline]
+ALTER TABLE [ods].[Pipeline] CHECK CONSTRAINT ALL;
 
 -- Set Indication Detail Code for Pipelines --
 GO
-ALTER TABLE [ods].[Pipeline]  DROP CONSTRAINT [FK_IndicationDetailCode_Pipeline]
+ALTER TABLE [ods].[Pipeline] NOCHECK CONSTRAINT ALL;
+GO
+ALTER TABLE [mdm].[Pipeline] NOCHECK CONSTRAINT ALL;
 GO
 UPDATE [BCIQ_ODS].[mdm].[Pipeline] SET IndicationDetailCode = ProductDetail_Code
 UPDATE [BCIQ_ODS].[ods].[Pipeline] SET IndicationDetailCode = ProductDetail_Code
 GO
-ALTER TABLE [ods].[Pipeline]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_Pipeline] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [ods].[IndicationDetail] ([Code])
+ALTER TABLE [ods].[Pipeline] CHECK CONSTRAINT ALL;
 GO
-ALTER TABLE [ods].[Pipeline] CHECK CONSTRAINT [FK_IndicationDetailCode_Pipeline]
+ALTER TABLE [mdm].[Pipeline] CHECK CONSTRAINT ALL;
 
 -- Set Indication Details for Licwnse --
-ALTER TABLE [ods].[License] DROP CONSTRAINT [FK_IndicationDetailCode_License]
+ALTER TABLE [ods].[License] NOCHECK CONSTRAINT ALL;
 GO
 UPDATE [BCIQ_ODS].[ods].[License] SET IndicationDetailCode = ProductDetail_Code
 GO
-ALTER TABLE [ods].[License]  WITH NOCHECK ADD  CONSTRAINT [FK_IndicationDetailCode_License] FOREIGN KEY([IndicationDetailCode])
-REFERENCES [ods].[IndicationDetail] ([Code])
-GO
-ALTER TABLE [ods].[License] CHECK CONSTRAINT [FK_IndicationDetailCode_License]
+ALTER TABLE [ods].[License] CHECK CONSTRAINT ALL;
