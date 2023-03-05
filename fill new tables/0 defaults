@@ -1,16 +1,144 @@
-
 -- Company
-ALTER TABLE [ods].[Company] ADD CONSTRAINT [DF_Company_Qaready] DEFAULT ((0)) FOR [Qaready]
-ALTER TABLE [ods].[Company] ADD CONSTRAINT [DF_Company_SearchReady] DEFAULT ((0)) FOR [SearchReady]
-ALTER TABLE [ods].[Company] ADD CONSTRAINT [DF_Company_Posted] DEFAULT ((0)) FOR [Posted]
+ALTER TABLE [ods].[Company] DROP CONSTRAINT [DF_Company_Qaready];
+ALTER TABLE [ods].[Company] DROP COLUMN [Qaready];
+ALTER TABLE [ods].[Company] ADD [Qaready] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Company] DROP CONSTRAINT [DF_Company_SearchReady];
+ALTER TABLE [ods].[Company] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[Company] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Company] DROP CONSTRAINT [DF_Company_Posted];
+ALTER TABLE [ods].[Company] DROP COLUMN [Posted];
+ALTER TABLE [ods].[Company] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
 
 -- Product
-ALTER TABLE [ods].[Product] ADD CONSTRAINT [DF_Product_Qaready] DEFAULT ((0)) FOR [Qaready]
-ALTER TABLE [ods].[Product] ADD CONSTRAINT [DF_Product_SearchReady] DEFAULT ((0)) FOR [SearchReady]
-ALTER TABLE [ods].[Product] ADD CONSTRAINT [DF_Product_Posted] DEFAULT ((0)) FOR [Posted]
+ALTER TABLE [ods].[Product] DROP CONSTRAINT [DF_Product_Qaready];
+ALTER TABLE [ods].[Product] DROP COLUMN [Qaready];
+ALTER TABLE [ods].[Product] ADD [Qaready] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Product] DROP CONSTRAINT [DF_Product_SearchReady];
+ALTER TABLE [ods].[Product] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[Product] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Product] DROP CONSTRAINT [DF_Product_Posted];
+ALTER TABLE [ods].[Product] DROP COLUMN [Posted];
+ALTER TABLE [ods].[Product] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- Pipeline
+ALTER TABLE [ods].[Pipeline] DROP CONSTRAINT [DF_Pipeline_Qaready];
+ALTER TABLE [ods].[Pipeline] DROP COLUMN [Qaready];
+ALTER TABLE [ods].[Pipeline] ADD [Qaready] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Pipeline] DROP CONSTRAINT [DF_Pipeline_SearchReady];
+ALTER TABLE [ods].[Pipeline] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[Pipeline] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Pipeline] DROP CONSTRAINT [DF_Pipeline_Posted];
+ALTER TABLE [ods].[Pipeline] DROP COLUMN [Posted];
+ALTER TABLE [ods].[Pipeline] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- Deals
+ALTER TABLE [ods].[Deals] DROP COLUMN [ReadyForQa];
+ALTER TABLE [ods].[Deals] ADD [ReadyForQa] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Deals] DROP COLUMN [Posted];
+ALTER TABLE [ods].[Deals] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
 
 -- IndicationDetail
-ALTER TABLE [ods].[IndicationDetail] ADD CONSTRAINT [DF_IndicationDetail_QAReady] DEFAULT ((0)) FOR [QAReady]
-ALTER TABLE [ods].[IndicationDetail] ADD CONSTRAINT [DF_IndicationDetail_SearchReady] DEFAULT ((0)) FOR [SearchReady]
-ALTER TABLE [ods].[IndicationDetail] ADD CONSTRAINT [DF_IndicationDetail_Posted] DEFAULT ((0)) FOR [Posted]
+ALTER TABLE [ods].[IndicationDetail] DROP CONSTRAINT [DF_IndicationDetail_QAReady];
+ALTER TABLE [ods].[IndicationDetail] DROP COLUMN [QAReady];
+ALTER TABLE [ods].[IndicationDetail] ADD [QAReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[IndicationDetail] DROP CONSTRAINT [DF_IndicationDetail_SearchReady];
+ALTER TABLE [ods].[IndicationDetail] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[IndicationDetail] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[IndicationDetail] DROP CONSTRAINT [DF_IndicationDetail_Posted];
+ALTER TABLE [ods].[IndicationDetail] DROP COLUMN [Posted];
+ALTER TABLE [ods].[IndicationDetail] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- Financings
+ALTER TABLE [ods].[Financings] DROP CONSTRAINT [DF_Financings_Qacompleted];
+ALTER TABLE [ods].[Financings] DROP COLUMN [Qacompleted];
+ALTER TABLE [ods].[Financings] ADD [Qacompleted] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Financings] DROP CONSTRAINT [DF_Financings_ReadyForQa];
+ALTER TABLE [ods].[Financings] DROP COLUMN [ReadyForQa];
+ALTER TABLE [ods].[Financings] ADD [ReadyForQa] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[Financings] DROP CONSTRAINT [DF_Financings_Posted];
+ALTER TABLE [ods].[Financings] DROP COLUMN [Posted];
+ALTER TABLE [ods].[Financings] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- StandardIndication
+ALTER TABLE [ods].[StandardIndication] DROP CONSTRAINT [DF_StandardIndication_Qaready];
+ALTER TABLE [ods].[StandardIndication] DROP COLUMN [Qaready];
+ALTER TABLE [ods].[StandardIndication] ADD [Qaready] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[StandardIndication] DROP CONSTRAINT [DF_StandardIndication_SearchReady];
+ALTER TABLE [ods].[StandardIndication] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[StandardIndication] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[StandardIndication] DROP CONSTRAINT [DF_StandardIndication_Posted];
+ALTER TABLE [ods].[StandardIndication] DROP COLUMN [Posted];
+ALTER TABLE [ods].[StandardIndication] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- DiseaseCategory
+ALTER TABLE [ods].[DiseaseCategory] DROP CONSTRAINT [DF_DiseaseCategory_QAReady];
+ALTER TABLE [ods].[DiseaseCategory] DROP COLUMN [QAReady];
+ALTER TABLE [ods].[DiseaseCategory] ADD [QAReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[DiseaseCategory] DROP CONSTRAINT [DF_DiseaseCategory_SearchReady];
+ALTER TABLE [ods].[DiseaseCategory] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[DiseaseCategory] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[DiseaseCategory] DROP CONSTRAINT [DF_DiseaseCategory_Posted];
+ALTER TABLE [ods].[DiseaseCategory] DROP COLUMN [Posted];
+ALTER TABLE [ods].[DiseaseCategory] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- MolecularTarget
+ALTER TABLE [ods].[MolecularTarget] DROP CONSTRAINT [DF_MolecularTarget_QAReady];
+ALTER TABLE [ods].[MolecularTarget] DROP COLUMN [QAReady];
+ALTER TABLE [ods].[MolecularTarget] ADD [QAReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[MolecularTarget] DROP CONSTRAINT [DF_MolecularTarget_SearchReady];
+ALTER TABLE [ods].[MolecularTarget] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[MolecularTarget] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[MolecularTarget] DROP CONSTRAINT [DF_MolecularTarget_Posted];
+ALTER TABLE [ods].[MolecularTarget] DROP COLUMN [Posted];
+ALTER TABLE [ods].[MolecularTarget] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- MolecularTargetFamilyFamily
+ALTER TABLE [ods].[MolecularTargetFamily] DROP CONSTRAINT [DF_MolecularTargetFamily_QAReady];
+ALTER TABLE [ods].[MolecularTargetFamily] DROP COLUMN [QAReady];
+ALTER TABLE [ods].[MolecularTargetFamily] ADD [QAReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[MolecularTargetFamily] DROP CONSTRAINT [DF_MolecularTargetFamily_SearchReady];
+ALTER TABLE [ods].[MolecularTargetFamily] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[MolecularTargetFamily] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[MolecularTargetFamily] DROP CONSTRAINT [DF_MolecularTargetFamily_Posted];
+ALTER TABLE [ods].[MolecularTargetFamily] DROP COLUMN [Posted];
+ALTER TABLE [ods].[MolecularTargetFamily] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- TherapeuticModality
+ALTER TABLE [ods].[TherapeuticModality] DROP CONSTRAINT [DF_TherapeuticModality_QAReady];
+ALTER TABLE [ods].[TherapeuticModality] DROP COLUMN [QAReady];
+ALTER TABLE [ods].[TherapeuticModality] ADD [QAReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[TherapeuticModality] DROP CONSTRAINT [DF_TherapeuticModality_SearchReady];
+ALTER TABLE [ods].[TherapeuticModality] DROP COLUMN [SearchReady];
+ALTER TABLE [ods].[TherapeuticModality] ADD [SearchReady] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[TherapeuticModality] DROP CONSTRAINT [DF_TherapeuticModality_Posted];
+ALTER TABLE [ods].[TherapeuticModality] DROP COLUMN [Posted];
+ALTER TABLE [ods].[TherapeuticModality] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
+
+-- HotTopic 
+ALTER TABLE [ods].[HotTopic] DROP COLUMN [Qaready];
+ALTER TABLE [ods].[HotTopic] ADD [Qaready] [bit] NOT NULL DEFAULT ((0));
+
+ALTER TABLE [ods].[HotTopic] DROP COLUMN [Posted];
+ALTER TABLE [ods].[HotTopic] ADD [Posted] [bit] NOT NULL DEFAULT ((0));
 
