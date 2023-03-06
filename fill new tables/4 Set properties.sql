@@ -9,4 +9,5 @@ UPDATE [BCIQ_ODS].[ods].[DiseaseCategory] SET Posted = 1, QAReady = 1, SearchRea
 UPDATE [BCIQ_ODS].[ods].[MolecularTarget] SET Posted = 1, QAReady = 1, SearchReady = 1;
 UPDATE [BCIQ_ODS].[ods].[MolecularTargetFamily] SET Posted = 1, QAReady = 1, SearchReady = 1;
 UPDATE [BCIQ_ODS].[ods].[TherapeuticModality] SET Posted = 1, QAReady = 1, SearchReady = 1;
+UPDATE [BCIQ_ODS].[ods].[HotTopic] SET Posted = 1, Qaready = 1;
 
