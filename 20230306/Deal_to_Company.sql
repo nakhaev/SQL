@@ -74,7 +74,7 @@ INSERT INTO [BCIQ_ODS].[ods].[Deal_to_Company] (
       ,dtc.[UpdatedDateTime]
 	  FROM [BCIQ_ODS].[api].[Deal_to_Company] dtc
 	  JOIN [BCIQ_ODS].[ods].[Deals_Temp] dt ON dt.ApiCode = dtc.Deal_Code
-	  WHERE dt.Code = 9999
+	  WHERE dt.Code != 9999
 );
 
 ALTER TABLE [ods].[Deal_to_Company] CHECK CONSTRAINT ALL;

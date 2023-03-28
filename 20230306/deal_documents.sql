@@ -29,7 +29,7 @@ SELECT
       ,dd.[DocumentType_Code]
       ,dd.[DocumentType_Name]
       ,null
-      ,dd.[DocumentBlob]
+      ,null
       ,dd.[FileName]
       ,dd.[DocumentDate]
       ,dd.[DocumentSource]
@@ -41,7 +41,7 @@ SELECT
       ,dd.[FileURL]
   FROM [BCIQ_ODS].[api].[DealDocuments] dd
   JOIN [BCIQ_ODS].[ods].[Deals_Temp] dt ON dt.ApiCode = dd.Deal_Code
-  WHERE dt.Code = 9999;
+  WHERE dt.Code != 9999
 )
 
 

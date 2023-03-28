@@ -39,7 +39,7 @@ INSERT INTO [BCIQ_ODS].[ods].[DealAsset_to_Company] (
 	  JOIN [BCIQ_ODS].[api].[DealAssets] da ON datc.DealAsset_Code = da.Code
 	  JOIN [BCIQ_ODS].[ods].[Deals_Temp] dt ON dt.ApiCode = da.Deal_Code
 	  JOIN [BCIQ_ODS].[ods].[DealAssets] odsda ON dt.odsCode = odsda.Deal_Code AND odsda.CreatedDateTime = da.CreatedDateTime
-	  WHERE dt.Code = 9999
+	  WHERE dt.Code != 9999
 );
 
 ALTER TABLE [ods].[DealAsset_to_Company] CHECK CONSTRAINT ALL;

@@ -1,8 +1,10 @@
 -- for new deals
 ALTER TABLE [ods].[DealAssets] NOCHECK CONSTRAINT ALL;
+SET IDENTITY_INSERT [BCIQ_ODS].[ods].[DealAssets] ON;
 
 INSERT INTO [BCIQ_ODS].[ods].[DealAssets] (
-       [Name]
+       [Code]
+       ,[Name]
       ,[Deal_Code]
       ,[Deal_Name]
       ,[DealID]
@@ -61,7 +63,8 @@ INSERT INTO [BCIQ_ODS].[ods].[DealAssets] (
 ) (
 
 SELECT 
-       da.[Name]
+       mdmda.[Code]
+       ,da.[Name]
        ,dt.[odsCode] as Deal_Code
        ,da.[Deal_Name]
        ,da.[DealID]
@@ -119,7 +122,8 @@ SELECT
        ,null
   FROM [BCIQ_ODS].[api].[DealAssets] da
   JOIN [BCIQ_ODS].[ods].[Deals_Temp] dt ON dt.ApiCode = da.Deal_Code
-  WHERE dt.Code = 9999
+  JOIN [BCIQ_ODS].[mdm].[DealAssets] mdmda ON mdmda.Deal_Code = dt.Code AND mdmda.AssetType_Code = da.AssetType_Code AND  mdmda.DealType_Code = da.DealType_Code
+  WHERE dt.Code != 9999
 );
-
+SET IDENTITY_INSERT [BCIQ_ODS].[ods].[DealAssets] OFF;
 ALTER TABLE [ods].[DealAssets] CHECK CONSTRAINT ALL;

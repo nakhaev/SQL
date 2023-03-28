@@ -1,5 +1,5 @@
 -- for new deals
-INSETR INTO [BCIQ_ODS].[ods].[DealEvent] (
+INSERT INTO [BCIQ_ODS].[ods].[DealEvent] (
        [Name]
       ,[EventType_Code]
       ,[EventType_Name]
@@ -35,5 +35,5 @@ SELECT
       ,de.[DealStory]
   FROM [BCIQ_ODS].[api].[DealEvent] de
   JOIN [BCIQ_ODS].[ods].[Deals_Temp] dt ON dt.ApiCode = de.Deal_Code
-  WHERE dt.Code = 9999;
+  WHERE dt.Code != 9999
 )
