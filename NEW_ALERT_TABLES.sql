@@ -1,9 +1,9 @@
-/****** Object:  Table [app].[AccountSettings]    Script Date: 5/22/2023 11:29:25 ******/
+/****** Object:  Table [app].[ApplicationSettings]    Script Date: 5/22/2023 11:29:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [app].[AccountSettings](
+CREATE TABLE [app].[ApplicationSettings](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Key] [nvarchar](200) NOT NULL,
 	[Type] [nvarchar](200) NULL,
