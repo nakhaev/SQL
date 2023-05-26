@@ -1,3 +1,13 @@
+DELETE FROM [BCIQ_DW].[app].[Letters]
+DELETE FROM [BCIQ_DW].[app].[UserTables]
+DELETE FROM [BCIQ_DW].[app].[Alerts]
+DELETE FROM [BCIQ_DW].[app].[Users]
+DELETE FROM [BCIQ_DW].[app].[AlertCards]
+DELETE FROM [BCIQ_DW].[app].[ApplicationSettings]
+DELETE FROM [BCIQ_DW].[app].[FullEditions]
+DELETE FROM [BCIQ_DW].[app].[Cache]
+
+
 SELECT * FROM [BCIQ_DW].[app].[Letters]
 SELECT * FROM [BCIQ_DW].[app].[UserTables]
 SELECT * FROM [BCIQ_DW].[app].[Alerts]
