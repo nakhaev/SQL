@@ -1,0 +1,40 @@
+SET IDENTITY_INSERT [BCIQ_DW].[app].[FullEdition] ON;
+INSERT INTO [BCIQ_DW].[app].[FullEdition] (
+    [Id]
+    ,[ProductID]
+    ,[Culture]
+    ,[Header]
+    ,[Footer]
+    ,[Sponsor]
+    ,[HideSponsor]
+    ,[PublicationDate]
+    ,[BackIssuesList]
+    ,[SectionList]
+    ,[AdSettings]
+    ,[StartDate]
+    ,[EndDate]
+    ,[IsPublished]
+    ,[Correction]
+    ,[Promo]
+) (
+    SELECT
+      [Id]
+      ,[ProductID]
+      ,[Culture]
+      ,[Header]
+      ,[Footer]
+      ,[Sponsor]
+      ,[HideSponsor]
+      ,[PublicationDate]
+      ,[BackIssuesList]
+      ,[SectionList]
+      ,[AdSettings]
+      ,[StartDate]
+      ,[EndDate]
+      ,[IsPublished]
+      ,[Correction]
+      ,[Promo]
+      FROM [BCIQDS.WESTUS.CLOUDAPP.AZURE.COM,27777].[BCIQ_DW].[app].[FullEdition]
+);
+
+SET IDENTITY_INSERT [BCIQ_DW].[app].[FullEdition] OFF;

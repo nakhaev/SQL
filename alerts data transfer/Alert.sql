@@ -1,0 +1,47 @@
+SET IDENTITY_INSERT [BCIQ_DW].[app].[Alert] ON;
+INSERT INTO [BCIQ_DW].[app].[Alert] (
+    [Id]
+    ,[UserId]
+    ,[Name]
+    ,[Date]
+    ,[SentToEmail]
+    ,[SentToMobile]
+    ,[ViewedNewsFeed]
+    ,[Type]
+    ,[Article]
+    ,[Term]
+    ,[Frequency]
+    ,[IsRead]
+    ,[AlertId]
+    ,[Added]
+    ,[Changed]
+    ,[Removed]
+    ,[RunId]
+    ,[Url]
+    ,[Articles]
+) (
+    SELECT
+    [Id]
+    ,[UserId]
+    ,[Name]
+    ,[Date]
+    ,[SentToEmail]
+    ,[SentToMobile]
+    ,[ViewedNewsFeed]
+    ,[Type]
+    ,[Article]
+    ,[Term]
+    ,[Frequency]
+    ,[IsRead]
+    ,[AlertId]
+    ,[Added]
+    ,[Changed]
+    ,[Removed]
+    ,[RunId]
+    ,[Url]
+    ,[Articles]
+      FROM [BCIQDS.WESTUS.CLOUDAPP.AZURE.COM,27777].[BCIQ_DW].[app].[Alert]
+      WHERE [Date] > '2022-06-30'
+);
+
+SET IDENTITY_INSERT [BCIQ_DW].[app].[Alert] OFF;
