@@ -175,6 +175,28 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+/****** Object:  Table [app].[Report]    Script Date: 5/22/2023 11:29:25 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [app].[Report](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[WorkspaceCollectionName] [nvarchar](200) NULL,
+	[WorkspaceName] [nvarchar](200) NULL,
+	[WorkspaceId] [nvarchar](200) NULL,
+	[ReportId] [nvarchar](200) NULL,
+	[ReportName] [nvarchar](200) NULL,
+	[ReportDescription] [nvarchar](200) NULL,
+	[WebUrl] [nvarchar](max) NULL,
+	[EmbedUrl] [nvarchar](max) NULL,
+	[CreatedAt] [datetime] NULL,
+PRIMARY KEY CLUSTERED
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 ALTER TABLE [app].[Alert] ADD  CONSTRAINT [DF_Alert_SentToEmail]  DEFAULT ((0)) FOR [SentToEmail]
 GO
 ALTER TABLE [app].[Alert] ADD  CONSTRAINT [DF_Alert_SentToMobile]  DEFAULT ((0)) FOR [SentToMobile]
