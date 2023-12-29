@@ -12,12 +12,13 @@ CREATE TABLE [app].[UserFilterSet](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[UserId] [int] NOT NULL,
 	[ExternalUserId] [nvarchar](200) NOT NULL,
-	[FilterSetId] [nvarchar](200) NOT NULL,
+	[FilterSetId] [nvarchar](200) NULL,
 	[ClassName] [nvarchar](200) NULL,
 	[Name] [nvarchar](200) NULL,
 	[FilterSetType] [nvarchar](200) NULL,
 	[TemporaryFilters] [nvarchar](max) NULL,
 	[Descriptor] [nvarchar](max) NULL,
+	[Last] [bit] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -29,3 +30,4 @@ REFERENCES [app].[User]([Id])
 GO
 ALTER TABLE [app].[UserFilterSet] CHECK CONSTRAINT [FK_UserFilterSetUserId]
 GO
+ALTER TABLE [app].[UserFilterSet] ADD  CONSTRAINT [DF_UserFilterSetLast]  DEFAULT ((0)) FOR [Last]
