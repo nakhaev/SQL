@@ -29,8 +29,3 @@ REFERENCES [app].[User]([Id])
 GO
 ALTER TABLE [app].[UserFilterSet] CHECK CONSTRAINT [FK_UserFilterSetUserId]
 GO
-ALTER TABLE [app].[UserFilterSet] WITH NOCHECK ADD CONSTRAINT [FK_UserFilterSetExternalUserId] FOREIGN KEY([ExternalUserId])
-REFERENCES [app].[User]([UserId])
-GO
-ALTER TABLE [app].[UserFilterSet] CHECK CONSTRAINT [FK_UserFilterSetExternalUserId]
-GO
